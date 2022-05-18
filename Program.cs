@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using TrivyDash.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-if (app.Environment.IsProduction())
+if (builder.Environment.IsProduction())
 {
     builder.Services.AddDbContext<AppDbContext>(opt =>
         opt.UseNpgsql(builder.Configuration.GetConnectionString("AppConnect"))
