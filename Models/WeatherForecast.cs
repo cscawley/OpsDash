@@ -1,4 +1,4 @@
-namespace react;
+namespace TrivyDash;
 
 public class WeatherForecast
 {

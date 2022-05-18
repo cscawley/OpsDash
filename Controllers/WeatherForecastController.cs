@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace react.Controllers;
+namespace TrivyDash.Controllers;
 
 [ApiController]
 [Route("[controller]")]

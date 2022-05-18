@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "react", "react.csproj", "{BE8286C8-034B-44E3-A822-3EFD64702994}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrivyDash", "TrivyDash.csproj", "{BE8286C8-034B-44E3-A822-3EFD64702994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
