@@ -10,4 +10,3 @@ namespace TrivyDash.Data
         void CreateReport(Report report);
     }
 }
-}

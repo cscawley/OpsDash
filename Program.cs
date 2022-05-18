@@ -4,22 +4,22 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using TrivyDash.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-// Add services to the container.
-
-builder.Services.AddControllersWithViews();
 if (app.Environment.IsProduction())
 {
     builder.Services.AddDbContext<AppDbContext>(opt =>
         opt.UseNpgsql(builder.Configuration.GetConnectionString("AppConnect"))
     );
 }
-else
+    else
 {
     Console.WriteLine("Using InMem DbContext");
     builder.Services.AddDbContext<AppDbContext>(opt =>
-         opt.UseInMemoryDatabase("InMem"));
+            opt.UseInMemoryDatabase("InMem"));
 }
+
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IReportRepo, ReportRepo>();
 builder.Services.AddAuthentication(options =>
 {
@@ -32,6 +32,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Configure the HTTP request pipeline.
+var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

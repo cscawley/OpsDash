@@ -1,14 +1,11 @@
 ﻿namespace TrivyDash.Models
 {
-    public enum Severity
-    {
-        UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL
-    }
     public class Report
     {
-        public string VulnerabilityID { get; set; }
-        public string PkgName { get; set; }
-        public string InstalledVersion { get; set; }
-        public Severity Severity { get; set; }
+        public int SchemaVersion { get; set; }
+        public string ArtifactName { get; set; }
+        public string ArtifactType { get; set; }
+        public MetaData MetaData { get; set; }
+        public List<Result> Results { get; set; }
     }
 }
