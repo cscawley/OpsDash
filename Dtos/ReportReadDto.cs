@@ -4,6 +4,7 @@ namespace TrivyDash.Dtos
 {
     public class ReportReadDto
     {
+        public Guid Id { get; set; }
         public int SchemaVersion { get; set; }
         public string ArtifactName { get; set; }
         public string ArtifactType { get; set; }

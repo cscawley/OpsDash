@@ -13,10 +13,12 @@ namespace TrivyDash.Data
 
         public void CreateReport(Report report)
         {
+            if (report == null)
+                throw new ArgumentNullException(nameof(report));
             _context.Report.Add(report);
         }
 
-        public IEnumerable<Report> GetAllReports()
+        public IEnumerable<Report> GetAllReports(string buildName)
         {
             return _context.Report.ToList();
         }

@@ -10,5 +10,13 @@ namespace TrivyDash.Data
 
         }
         public DbSet<Report> Report { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Report>()
+                .Property(e => e._MetaData).HasColumnName("MetaData");
+            modelBuilder.Entity<Report>()
+                .Property(e => e._Result).HasColumnName("Result");
+        }
     }
 }

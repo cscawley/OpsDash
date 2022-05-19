@@ -2,7 +2,7 @@
 {
     public class CVSS
     {
-        public Nvd nvd { get; set; }
+        public Nvd? nvd { get; set; }
         public Redhat redhat { get; set; }
     }
 }
