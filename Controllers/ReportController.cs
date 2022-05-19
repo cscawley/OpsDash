@@ -18,11 +18,20 @@ namespace TrivyDash.Controllers
             _repository = repository;
             _mapper = mapper;
         }
-        [HttpGet("{buildName}", Name = "GetReports")]
-        public ActionResult<IEnumerable<ReportReadDto>> GetReports(string buildName)
+        [HttpGet]
+        public ActionResult<IEnumerable<ReportReadDto>> GetAllReports()
+        {
+            Console.WriteLine("Get Reports");
+            var reports = _repository.GetReports();
+            if (reports != null)
+                return Ok(_mapper.Map<IEnumerable<ReportReadDto>>(reports));
+            return NotFound();
+        }
+        [HttpGet("{buildName}", Name = "GetReport")]
+        public ActionResult<IEnumerable<ReportReadDto>> GetReport(string buildName)
         {
             Console.WriteLine("Get Players");
-            var reports = _repository.GetAllReports(buildName);
+            var reports = _repository.GetReport(buildName);
             if (reports != null)
                 return Ok(_mapper.Map<IEnumerable<ReportReadDto>>(reports));
             return NotFound();
@@ -33,7 +42,7 @@ namespace TrivyDash.Controllers
             var report = _mapper.Map<Report>(reportCreateDto);
             _repository.CreateReport(report);
             _repository.SaveChanges();
-            return CreatedAtRoute(nameof(GetReports), new { buildName = report.ArtifactName }, report);
+            return CreatedAtRoute(nameof(GetReport), new { buildName = report.Id }, report);
         }
     }
 }

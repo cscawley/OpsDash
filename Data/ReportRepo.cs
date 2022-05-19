@@ -18,14 +18,14 @@ namespace TrivyDash.Data
             _context.Report.Add(report);
         }
 
-        public IEnumerable<Report> GetAllReports(string buildName)
+        public IEnumerable<Report> GetReports()
         {
             return _context.Report.ToList();
         }
 
-        public IEnumerable<Report> GetReport()
+        public IEnumerable<Report> GetReport(string buildName)
         {
-            throw new NotImplementedException();
+            return _context.Report.ToList();
         }
 
         public bool SaveChanges()
