@@ -4,7 +4,7 @@ export class FetchData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { reports: [], loading: true, severity: "NOTSET" };
+    this.state = { reports: [], loading: true};
   }
 
   componentDidMount() {
@@ -50,13 +50,12 @@ export class FetchData extends Component {
     );
   }
   mostSevere(data) {
-    let sevDict = {"UNKNOWN" : 0, "LOW" : 1, "MEDIUM" : 2, "HIGH" : 3, "CRITICAL" : 4}
     let sevArray = ["UNKNOWN", "LOW", "MEDIUM", "HIGH", "CRITICAL"]
     data.forEach(report => {
       let highest = null
       report.results[0].vulnerabilities.forEach(vuln => {
-        if (sevDict[vuln.severity]>highest){
-          highest = sevDict[vuln.severity]
+        if (sevArray.indexOf(vuln.severity) > highest){
+          highest = sevArray.indexOf(vuln.severity)
         }
       })
       report.results[0].highest = sevArray[highest]
