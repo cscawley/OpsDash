@@ -7,7 +7,7 @@ namespace TrivyDash.Models
     public class Report
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public int SchemaVersion { get; set; }
         public string ArtifactName { get; set; }
         public string ArtifactType { get; set; }
