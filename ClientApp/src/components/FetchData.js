@@ -4,7 +4,7 @@ export class FetchData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { reports: [], loading: true };
+    this.state = { reports: [], loading: true, severity: "NOTSET" };
   }
 
   componentDidMount() {
@@ -13,7 +13,7 @@ export class FetchData extends Component {
  
   static renderReportsTable(reports) {
     return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
+      <table className='table' aria-labelledby="tabelLabel">
         <thead>
           <tr>
             <th>Artifact Type</th>
@@ -24,7 +24,7 @@ export class FetchData extends Component {
         </thead>
         <tbody>
           {reports.map(report =>
-            <tr key={report.id}>
+            <tr className={report.results[0].highest} key={report.id}>
                 <td>{report.artifactType}</td>
                 <td>{report.artifactName}</td>
                 <td>{report.metaData.os.family} {report.metaData.os.name}</td>
@@ -39,7 +39,7 @@ export class FetchData extends Component {
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
-        : FetchData.renderReportsTable(this.state.reports);
+        : FetchData.renderReportsTable(this.state.reports, this.state.severity);
 
     return (
       <div>
@@ -49,11 +49,25 @@ export class FetchData extends Component {
       </div>
     );
   }
-
+  mostSevere(data) {
+    let sevDict = {"UNKNOWN" : 0, "LOW" : 1, "MEDIUM" : 2, "HIGH" : 3, "CRITICAL" : 4}
+    let sevArray = ["UNKNOWN", "LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    data.forEach(report => {
+      let highest = null
+      report.results[0].vulnerabilities.forEach(vuln => {
+        if (sevDict[vuln.severity]>highest){
+          highest = sevDict[vuln.severity]
+        }
+      })
+      report.results[0].highest = sevArray[highest]
+    })
+    return data
+  }
   async populateReportData() {
     const response = await fetch('/api/report');
     const data = await response.json();
-    console.log(data)
-    this.setState({ reports: data, loading: false });
+    // console.log(this.mostSevere(data))
+
+    this.setState({ reports: this.mostSevere(data), loading: false });
   }
 }

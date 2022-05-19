@@ -12,3 +12,28 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.CRITICAL {
+  background-color: #e01a27;
+  color: beige !important;
+}
+
+.HIGH {
+  background-color: #e09e1a;
+  color: beige !important;
+}
+
+.MEDIUM {
+  background-color: #631ae0;
+  color: beige !important;
+}
+
+.LOW {
+  background-color: #1a5fe0;
+  color: beige !important;
+}
+
+.UNKNOWN {
+  background-color: #c4c4c4;
+  color: beige !important;
+}
