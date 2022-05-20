@@ -19,6 +19,7 @@ View the report http://localhost:5000/alerts
 
 ## TODO
 
+- alert detail component
 - asp.net authentication
 - sso authentication
 - API token creation
