@@ -6,9 +6,13 @@ using TrivyDash.Data;
 var builder = WebApplication.CreateBuilder(args);
 if (builder.Environment.IsProduction())
 {
+    //Temp while containerizing application
+    Console.WriteLine("Using InMem DbContext");
     builder.Services.AddDbContext<AppDbContext>(opt =>
-        opt.UseNpgsql(builder.Configuration.GetConnectionString("AppConnect"))
-    );
+            opt.UseInMemoryDatabase("InMem"));
+    // builder.Services.AddDbContext<AppDbContext>(opt =>
+    //     opt.UseNpgsql(builder.Configuration.GetConnectionString("AppConnect"))
+    //);
 }
     else
 {

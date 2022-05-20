@@ -18,13 +18,10 @@ export class FetchContainers extends Component {
   render() {
     return (
       <div>
-        <h1>Counter</h1>
+        <h1>Containers</h1>
 
-        <p>This is a simple example of a React component.</p>
+        <p>Coming soon.</p>
 
-        <p aria-live="polite">Current count: <strong>{this.state.currentCount}</strong></p>
-
-        <button className="btn btn-primary" onClick={this.incrementCounter}>Increment</button>
       </div>
     );
   }

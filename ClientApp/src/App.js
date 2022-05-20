@@ -5,7 +5,6 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { FetchAlerts } from './components/FetchAlerts';
 import { FetchContainers } from './components/FetchContainers';
-import { FetchWeather } from './components/FetchWeather';
 
 import './custom.css'
 
@@ -19,7 +18,6 @@ export default class App extends Component {
         <Route path='/containers' component={FetchContainers} />
         <Route path='/alerts' component={FetchAlerts} />
         <Route path='/archive' component={FetchData} />
-        <Route path='/weather' component={FetchWeather} />
       </Layout>
     );
   }
