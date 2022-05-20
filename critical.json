@@ -1,0 +1,166 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "mcr.microsoft.com/dotnet/aspnet:6.0.5",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "debian",
+      "Name": "11.3"
+    },
+    "ImageID": "sha256:70f39e2150e107f4724d394a80cc3586d5968582f256680639574baac066c9c9",
+    "DiffIDs": [
+      "sha256:fd95118eade99a75b949f634a0994e0f0732ff18c2573fabdfc8d4f95b092f0e",
+      "sha256:51cec523df7a5fa02d16d7041e9fc07dd80f26e76fbee16d7abb6dd60146926c",
+      "sha256:d140feb8b6773d8d1512a426f4211cfbdd2ce5152b4c86476feea27b49adf282",
+      "sha256:9b8ce55d4ce54fd1b3a1aeabc334a29b4c623e0f155b22fd1fb274671149988b",
+      "sha256:f5c3e725d1aa6eb643e531d993d9695afbaa0957efb6c3e80084d86ed424792e"
+    ],
+    "RepoTags": [
+      "mcr.microsoft.com/dotnet/aspnet:6.0.5"
+    ],
+    "RepoDigests": [
+      "mcr.microsoft.com/dotnet/aspnet@sha256:e0189fa2887805b5344d28deb397ce4cdda24a12e1690a4aaa24ee98c9930891"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2022-05-18T13:06:21.375132564Z",
+      "docker_version": "20.10.12",
+      "history": [
+        {
+          "created": "2022-05-11T01:20:16.520708229Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:4a0bb88956083aa56032fdd9601d9b66c39b18c896ba35ea33594cd75621640a in / "
+        },
+        {
+          "created": "2022-05-11T01:20:16.833449474Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"bash\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2022-05-18T13:05:00.442844081Z",
+          "created_by": "/bin/sh -c apt-get update     \u0026\u0026 apt-get install -y --no-install-recommends         ca-certificates                 libc6         libgcc1         libgssapi-krb5-2         libicu67         libssl1.1         libstdc++6         zlib1g     \u0026\u0026 rm -rf /var/lib/apt/lists/*"
+        },
+        {
+          "created": "2022-05-18T13:05:01.058604562Z",
+          "created_by": "/bin/sh -c #(nop)  ENV ASPNETCORE_URLS=http://+:80 DOTNET_RUNNING_IN_CONTAINER=true",
+          "empty_layer": true
+        },
+        {
+          "created": "2022-05-18T13:05:37.59888268Z",
+          "created_by": "/bin/sh -c #(nop)  ENV DOTNET_VERSION=6.0.5",
+          "empty_layer": true
+        },
+        {
+          "created": "2022-05-18T13:05:43.574917925Z",
+          "created_by": "/bin/sh -c #(nop) COPY dir:49b45e3ccadd0521a7513b91e6cb00a52ff23f9e8004ce74c832042e93fe7e33 in /usr/share/dotnet "
+        },
+        {
+          "created": "2022-05-18T13:05:45.444243066Z",
+          "created_by": "/bin/sh -c ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet"
+        },
+        {
+          "created": "2022-05-18T13:06:19.737135122Z",
+          "created_by": "/bin/sh -c #(nop)  ENV ASPNET_VERSION=6.0.5",
+          "empty_layer": true
+        },
+        {
+          "created": "2022-05-18T13:06:21.375132564Z",
+          "created_by": "/bin/sh -c #(nop) COPY dir:28d38ad4b94be53345d58212d462f052eb3caf9910d61f4881996aefce649cdc in /usr/share/dotnet/shared/Microsoft.AspNetCore.App "
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:fd95118eade99a75b949f634a0994e0f0732ff18c2573fabdfc8d4f95b092f0e",
+          "sha256:51cec523df7a5fa02d16d7041e9fc07dd80f26e76fbee16d7abb6dd60146926c",
+          "sha256:d140feb8b6773d8d1512a426f4211cfbdd2ce5152b4c86476feea27b49adf282",
+          "sha256:9b8ce55d4ce54fd1b3a1aeabc334a29b4c623e0f155b22fd1fb274671149988b",
+          "sha256:f5c3e725d1aa6eb643e531d993d9695afbaa0957efb6c3e80084d86ed424792e"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "bash"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "ASPNETCORE_URLS=http://+:80",
+          "DOTNET_RUNNING_IN_CONTAINER=true",
+          "DOTNET_VERSION=6.0.5",
+          "ASPNET_VERSION=6.0.5"
+        ],
+        "Image": "sha256:72e4e1b2aeffd246f72790ad0f9311b31f2a2fd7c0630d6be7837867e9c7a94c"
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "mcr.microsoft.com/dotnet/aspnet:6.0.5 (debian 11.3)",
+      "Class": "os-pkgs",
+      "Type": "debian",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2019-8457",
+          "PkgName": "libdb5.3",
+          "InstalledVersion": "5.3.28+dfsg1-0.8",
+          "Layer": {
+            "Digest": "sha256:214ca5fb90323fe769c63a12af092f2572bf1c6b300263e09883909fc865d260",
+            "DiffID": "sha256:fd95118eade99a75b949f634a0994e0f0732ff18c2573fabdfc8d4f95b092f0e"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-8457",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "sqlite: heap out-of-bound read in function rtreenode()",
+          "Description": "SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the rtreenode() function when handling invalid rtree tables.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-125"
+          ],
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V2Score": 7.5,
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00074.html",
+            "https://access.redhat.com/security/cve/CVE-2019-8457",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8457",
+            "https://kc.mcafee.com/corporate/index?page=content\u0026id=SB10365",
+            "https://linux.oracle.com/cve/CVE-2019-8457.html",
+            "https://linux.oracle.com/errata/ELSA-2020-1810.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OPKYSWCOM3CL66RI76TYVIG6TJ263RXH/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SJPFGA45DI4F5MCF2OAACGH3HQOF4G3M/",
+            "https://security.netapp.com/advisory/ntap-20190606-0002/",
+            "https://ubuntu.com/security/notices/USN-4004-1",
+            "https://ubuntu.com/security/notices/USN-4004-2",
+            "https://ubuntu.com/security/notices/USN-4019-1",
+            "https://ubuntu.com/security/notices/USN-4019-2",
+            "https://usn.ubuntu.com/4004-1/",
+            "https://usn.ubuntu.com/4004-2/",
+            "https://usn.ubuntu.com/4019-1/",
+            "https://usn.ubuntu.com/4019-2/",
+            "https://www.oracle.com/security-alerts/cpuapr2020.html",
+            "https://www.oracle.com/security-alerts/cpujan2020.html",
+            "https://www.oracle.com/security-alerts/cpujul2020.html",
+            "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html",
+            "https://www.sqlite.org/releaselog/3_28_0.html",
+            "https://www.sqlite.org/src/info/90acdbfce9c08858"
+          ],
+          "PublishedDate": "2019-05-30T16:29:00Z",
+          "LastModifiedDate": "2021-07-31T08:15:00Z"
+        }
+      ]
+    }
+  ]
+}
