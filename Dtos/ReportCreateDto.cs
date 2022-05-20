@@ -5,6 +5,7 @@ namespace TrivyDash.Dtos
     public class ReportCreateDto
     {
         public Guid Id { get; set; }
+        public DateTime Date { get; set; }
         public int SchemaVersion { get; set; }
         public string? ArtifactName { get; set; }
         public string? ArtifactType { get; set; }

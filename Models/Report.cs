@@ -8,10 +8,18 @@ namespace TrivyDash.Models
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public DateTime Date { get; set; } = DateTime.Now;
+        private DateTime? dateCreated = null;
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime Date 
+        {
+            get{return this.dateCreated.HasValue ? this.dateCreated.Value : DateTime.Now;}
+            set { this.dateCreated = value; }
+        }
         public int SchemaVersion { get; set; }
-        public string ArtifactName { get; set; } = "None";
-        public string ArtifactType { get; set; } = "unknown_type";
+        [Required(ErrorMessage = "No Artifact Name")]
+        public string? ArtifactName { get; set; }
+        [Required(ErrorMessage = "No Artifact Type")]
+        public string? ArtifactType { get; set; }
         internal string? _MetaData { get; set; }
         internal string? _Result { get; set; }
         [NotMapped]
