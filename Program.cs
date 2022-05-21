@@ -1,18 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 using TrivyDash.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 if (builder.Environment.IsProduction())
 {
-    //Temp while containerizing application
-    Console.WriteLine("Using InMem DbContext");
     builder.Services.AddDbContext<AppDbContext>(opt =>
-            opt.UseInMemoryDatabase("InMem"));
-    // builder.Services.AddDbContext<AppDbContext>(opt =>
-    //     opt.UseNpgsql(builder.Configuration.GetConnectionString("AppConnect"))
-    //);
+        opt.UseNpgsql(builder.Configuration.GetConnectionString("Db1"))
+    );
 }
     else
 {

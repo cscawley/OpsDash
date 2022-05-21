@@ -182,6 +182,7 @@ ClientBin/
 *.pfx
 *.publishsettings
 orleans.codegen.cs
+DB/
 
 /node_modules
 yarn.lock

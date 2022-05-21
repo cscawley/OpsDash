@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  dash:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports: 
+      - 5000:80
+      - 8443:443
+    depends_on:
+      - db
+    restart: on-failure
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: 'reports'
+      POSTGRES_USER: 'my_user'
+      POSTGRES_PASSWORD: 'my_pw'
+    ports:
+      - 5432:5432
+    volumes:
+      - ./DB/data:/var/lib/postgresql/data
+networks:
+  default:
+    name: dash-net
