@@ -6,15 +6,13 @@ namespace TrivyDash.Models
 {
     public class Report
     {
+        public Report()
+        {
+            DateCreated = DateTime.Now;
+        }
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        private DateTime? dateCreated = null;
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime Date 
-        {
-            get{return this.dateCreated.HasValue ? this.dateCreated.Value : DateTime.Now;}
-            set { this.dateCreated = value; }
-        }
+        public DateTime DateCreated { get; set; }
         public int SchemaVersion { get; set; }
         [Required(ErrorMessage = "No Artifact Name")]
         public string? ArtifactName { get; set; }
