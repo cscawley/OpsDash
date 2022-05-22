@@ -18,13 +18,14 @@ if (builder.Environment.IsProduction())
             opt.UseInMemoryDatabase("InMem"));
     
 }
-
+// Identity with the default UI
 builder.Services.AddDefaultIdentity<AppDbContext>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<AppDbContext>();
-
+// IdentityServer with an additional AddApiAuthorization helper method that sets up some default ASP.NET Core conventions on top of IdentityServer
+// This helper method configures IdentityServer to use our supported configuration. IdentityServer is a powerful and extensible framework for handling app security concerns. At the same time, that exposes unnecessary complexity for the most common scenarios. Consequently, a set of conventions and configuration options is provided to you that are considered a good starting point. Once your authentication needs change, the full power of IdentityServer is still available to customize authentication to suit your needs.
 builder.Services.AddIdentityServer()
     .AddApiAuthorization<ApplicationUser, AppDbContext>();
-
+// Authentication with an additional AddIdentityServerJwt helper method that configures the app to validate JWT tokens produced by IdentityServer
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
@@ -55,7 +56,9 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+// The authentication middleware that is responsible for validating the request credentials and setting the user on the request context
 app.UseAuthentication();
+// The IdentityServer middleware that exposes the OpenID Connect endpoints
 app.UseIdentityServer();
 app.UseAuthorization();
 app.MapControllerRoute(
