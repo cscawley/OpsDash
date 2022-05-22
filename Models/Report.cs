@@ -6,13 +6,9 @@ namespace TrivyDash.Models
 {
     public class Report
     {
-        public Report()
-        {
-            DateCreated = DateTime.Now;
-        }
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public DateTime DateCreated { get; set; }
+        public DateTime Date { get; set; } = DateTime.UtcNow;
         public int SchemaVersion { get; set; }
         [Required(ErrorMessage = "No Artifact Name")]
         public string? ArtifactName { get; set; }

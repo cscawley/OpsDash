@@ -40,6 +40,10 @@ namespace TrivyDash.Controllers
         public ActionResult<ReportReadDto> CreatePlayer(ReportCreateDto reportCreateDto)
         {
             var report = _mapper.Map<Report>(reportCreateDto);
+            // investigate IMapper.map between the Create DTO and the entity model. 
+            System.Console.WriteLine(report.Date);
+            report.Date = DateTime.UtcNow;
+            System.Console.WriteLine(report.Date);
             _repository.CreateReport(report);
             _repository.SaveChanges();
             return CreatedAtRoute(nameof(GetReport), new { buildName = report.Id }, report);
