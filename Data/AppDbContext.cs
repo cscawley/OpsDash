@@ -8,8 +8,12 @@ namespace TrivyDash.Data
 {
     public class AppDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public AppDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions){}
-        public DbSet<Report> Report { get; set; }
+        public AppDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions) 
+            : base(options, operationalStoreOptions)
+        {
+            
+        }
+        public DbSet<Report>? Report { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -13,9 +13,12 @@ if (builder.Environment.IsProduction())
 }
     else
 {
-    Console.WriteLine("Using InMem DbContext");
     builder.Services.AddDbContext<AppDbContext>(opt =>
-            opt.UseInMemoryDatabase("InMem"));
+        opt.UseNpgsql(builder.Configuration.GetConnectionString("Db1"))
+    );
+    // Console.WriteLine("Using InMem DbContext");
+    // builder.Services.AddDbContext<AppDbContext>(opt =>
+    //         opt.UseInMemoryDatabase("InMem"));
     
 }
 // Identity with the default UI
@@ -28,13 +31,11 @@ builder.Services.AddIdentityServer()
 // Authentication with an additional AddIdentityServerJwt helper method that configures the app to validate JWT tokens produced by IdentityServer
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
-
-builder.Services.AddAuthorization();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
 builder.Services.AddScoped<IReportRepo, ReportRepo>();
-builder.Services.AddControllers();
 // Swagger/OpenAPI https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -64,6 +65,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
+app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");;
 
