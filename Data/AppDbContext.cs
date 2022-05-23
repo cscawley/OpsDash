@@ -17,6 +17,7 @@ namespace TrivyDash.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Report>()
                 .Property(e => e._MetaData).HasColumnName("MetaData");
             modelBuilder.Entity<Report>()
