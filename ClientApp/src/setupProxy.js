@@ -5,7 +5,15 @@ const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_H
   env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'http://localhost:62414';
 
 const context =  [
+  //Report Data
   "/api/report",
+  //Authorization
+  "/_configuration",
+  "/.well-known",
+  "/Identity",
+  "/connect",
+  "/ApplyDatabaseMigrations",
+  "/_framework"
 ];
 
 module.exports = function(app) {
