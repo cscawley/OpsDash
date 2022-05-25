@@ -38,7 +38,7 @@ docker exec -it trivydash-db-1 psql -U my_user -d reports -f /var/lib/postgresql
 ## TODO
 
 - alert detail component
-- asp.net authentication
+- ~~asp.net authentication~~
 - sso authentication
 - API token creation
 - Twillio SMS alerts
