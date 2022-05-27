@@ -37,7 +37,7 @@ namespace TrivyDash.Controllers
             return NotFound();
         }
         [HttpPost]
-        public ActionResult<ReportReadDto> CreatePlayer(ReportCreateDto reportCreateDto)
+        public ActionResult<ReportReadDto> CreateReport(ReportCreateDto reportCreateDto)
         {
             var report = _mapper.Map<Report>(reportCreateDto);
             // investigate IMapper.map between the Create DTO and the entity model. 
