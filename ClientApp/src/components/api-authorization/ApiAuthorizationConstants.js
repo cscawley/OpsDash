@@ -1,4 +1,4 @@
-export const ApplicationName = 'TrivyDashAPI';
+export const ApplicationName = 'TrivyDash';
 
 export const QueryParameterNames = {
   ReturnUrl: 'returnUrl',
@@ -33,6 +33,6 @@ export const ApplicationPaths = {
   LogOut: `${prefix}/${LogoutActions.Logout}`,
   LoggedOut: `${prefix}/${LogoutActions.LoggedOut}`,
   LogOutCallback: `${prefix}/${LogoutActions.LogoutCallback}`,
-  IdentityRegisterPath: 'TrivyDash/Account/Register',
-  IdentityManagePath: 'TrivyDash/Account/Manage'
+  IdentityRegisterPath: 'Identity/Account/Register',
+  IdentityManagePath: 'Identity/Account/Manage'
 };

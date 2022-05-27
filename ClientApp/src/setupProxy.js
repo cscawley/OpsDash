@@ -10,7 +10,7 @@ const context =  [
   //Authorization
   "/_configuration",
   "/.well-known",
-  "/TrivyDash",
+  "/Identity",
   "/connect",
   "/ApplyDatabaseMigrations",
   "/_framework"

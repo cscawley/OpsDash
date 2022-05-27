@@ -34,11 +34,3 @@ Populate database (move sql file into ./DB/data folder)
 docker-compose up
 docker exec -it trivydash-db-1 psql -U my_user -d reports -f /var/lib/postgresql/data/EFMigration.sql
 ```
-
-## TODO
-
-- alert detail component
-- ~~asp.net authentication~~
-- sso authentication
-- API token creation
-- Twillio SMS alerts

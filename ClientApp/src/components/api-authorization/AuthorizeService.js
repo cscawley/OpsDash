@@ -178,7 +178,7 @@ export class AuthorizeService {
         if (this.userManager !== undefined) {
             return;
         }
-        console.log(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
+        // console.log(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
         let response = await fetch(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
         if (!response.ok) {
             throw new Error(`Could not load settings for '${ApplicationName}'`);
