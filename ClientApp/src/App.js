@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
+import { FetchArchive } from './components/FetchData';
 import { FetchAlerts } from './components/FetchAlerts';
 import { FetchContainers } from './components/FetchContainers';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
@@ -20,7 +20,7 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <AuthorizeRoute path='/containers' component={FetchContainers} />
         <AuthorizeRoute path='/alerts' component={FetchAlerts} />
-        <AuthorizeRoute path='/archive' component={FetchData} />
+        <AuthorizeRoute path='/archive' component={FetchArchive} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );

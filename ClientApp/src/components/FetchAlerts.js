@@ -7,9 +7,9 @@ export class FetchAlerts extends Component {
     this.state = { reports: [], loading: true};
   }
 
-  componentDidMount() {
-      this.populateReportData();
-  }
+  //componentDidMount() {
+  //   this.populateReportData();
+  //}
  
   static renderReportsTable(reports) {
     return (
@@ -43,8 +43,7 @@ export class FetchAlerts extends Component {
 
     return (
       <div>
-        <h1 id="tabelLabel" >Trivy Alerts</h1>
-        <p>This component Fetches all alerts.</p>
+        <h1 id="tabelLabel" >Latest Reports</h1>
         {contents}
       </div>
     );
@@ -62,11 +61,10 @@ export class FetchAlerts extends Component {
     })
     return data
   }
-  async populateReportData() {
-    const response = await fetch('/api/report');
-    const data = await response.json();
+  //async populateReportData() {
+    // const response = await fetch('/api/latest');
+    // const data = await response.json();
     // console.log(this.mostSevere(data))
-
-    this.setState({ reports: this.mostSevere(data), loading: false });
-  }
+    // this.setState({ reports: this.mostSevere(data), loading: false });
+  //}
 }
