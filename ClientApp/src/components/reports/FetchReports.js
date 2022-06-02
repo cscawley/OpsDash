@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { RenderReportsTable } from './RenderReportsTable';
 export class FetchArchive extends Component {
 
     constructor(props) {
@@ -11,35 +11,10 @@ export class FetchArchive extends Component {
         this.populateReportData();
     }
 
-    static renderReportsTable(reports) {
-        return (
-            <table className='table' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Artifact Type</th>
-                        <th>Artifact Name</th>
-                        <th>OS</th>
-                        <th>Threats</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {reports.map(report =>
-                        <tr className={report.results[0].highest} key={report.id}>
-                            <td>{report.artifactType}</td>
-                            <td>{report.artifactName}</td>
-                            <td>{report.metaData.os.family} {report.metaData.os.name}</td>
-                            <td>{report.results[0].vulnerabilities.length}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        );
-    }
-
     render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : FetchArchive.renderReportsTable(this.state.reports, this.state.severity);
+            : <RenderReportsTable reports={this.state.reports}/>;
 
         return (
             <div>
@@ -65,7 +40,6 @@ export class FetchArchive extends Component {
     async populateReportData() {
         const response = await fetch('/api/report');
         const data = await response.json();
-        // console.log(this.mostSevere(data))
         this.setState({ reports: this.mostSevere(data), loading: false });
     }
 }

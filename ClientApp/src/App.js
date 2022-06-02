@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
-import { FetchArchive } from './components/FetchData';
-import { FetchAlerts } from './components/FetchAlerts';
-import { FetchContainers } from './components/FetchContainers';
+import { FetchArchive } from './components/reports/FetchReports';
+import { FetchAlerts } from './components/reports/FetchAlerts';
+import { FetchContainers } from './components/reports/FetchContainers';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
