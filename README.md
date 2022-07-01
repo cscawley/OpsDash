@@ -1,6 +1,6 @@
-﻿# TrivyDash
+﻿# OpsDash
 
-TrivyDash is a dashboard for consuming and monitoring Trivy scan outputs.
+OpsDash is a dashboard for consuming and monitoring Trivy scan outputs.
 
 ## Test With InMem Data
 
